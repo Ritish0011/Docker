@@ -1,0 +1,8 @@
+docker network create roundrobin
+docker container run -d --network roundrobin --net-alias search elasticsearch:2
+docker container run -d --network roundrobin --net-alias search elasticsearch:2
+docker container ls
+docker container run --rm --net roundrobin alpine nslookup search
+docker container run --rm --net roundrobin centos curl -s search:9200
+docker container run --rm --net roundrobin centos curl -s search:9200
+docker container run --rm --net roundrobin centos curl -s search:9200

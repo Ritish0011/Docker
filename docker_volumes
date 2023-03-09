@@ -1,0 +1,7 @@
+docker volume create psql1
+docker container run -d --name psql1 -e POSTGRES_PASSWORD=mypassword -v psql1:/var/lib/postgresql/data postgres:15.1
+docker container logs psql1
+docker container stop psql1
+docker container run -d --name psql2 -e POSTGRES_PASSWORD=mypassword -v psql1:/var/lib/postgresql/data postgres:15.2
+docker container logs psql2
+docker container stop psql2
